@@ -2,8 +2,15 @@ package com.example.test_work;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String BASE_URL = "http://13.235.65.171:8080/adddevice?deviceid=cello";
 
     private static final String TAG = "testttt";
+
+    String subscribeTopic = "general";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +74,21 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+
+        //adding subscriber to pop notifications up
+        FirebaseMessaging.getInstance().subscribeToTopic(subscribeTopic)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Subscribed Successfully";
+                        if (!task.isSuccessful()) {
+                            msg = "Subscription failed";
+                        }
+                        Toast.makeText(MainActivity.this,msg,Toast.LENGTH_LONG).show();
+                    }
+                });
+
+
     }
 
     private class ApiTask extends AsyncTask<String, Void, String> {
