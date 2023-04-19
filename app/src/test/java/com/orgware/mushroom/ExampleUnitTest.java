@@ -1,4 +1,4 @@
-package com.example.test_work;
+package com.orgware.mushroom;
 
 import org.junit.Test;
 

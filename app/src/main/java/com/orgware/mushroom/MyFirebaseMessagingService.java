@@ -1,4 +1,4 @@
-package com.example.test_work;
+package com.orgware.mushroom;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -12,11 +12,11 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import android.provider.Settings;
 import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
+import com.example.test_work.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -61,7 +61,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Uri customSounUri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.custom_sound_new);
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, channelId)
-                        .setSmallIcon(R.drawable.ic_launcher_background)
+                        .setSmallIcon(R.drawable.ic_orgware_logo)
                         .setContentTitle("My new notification")
                         .setContentText(messageBody)
                         .setAutoCancel(true)

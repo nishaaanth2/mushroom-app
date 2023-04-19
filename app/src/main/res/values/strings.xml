@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Test-Work</string>
+    <string name="app_name">Mush-rooms</string>
     <string name="msg_token_fmt">token:</string>
     <string name="default_notification_channel_id">My channel ID</string>
 </resources>

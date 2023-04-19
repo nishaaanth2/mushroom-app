@@ -1,8 +1,10 @@
-package com.example.test_work;
+package com.orgware.mushroom;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.test_work.R;
 
 public class SettingActivity extends AppCompatActivity {
 

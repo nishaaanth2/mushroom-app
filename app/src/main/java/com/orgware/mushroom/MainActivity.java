@@ -1,24 +1,17 @@
-package com.example.test_work;
+package com.orgware.mushroom;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
-import android.media.MediaPlayer;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.test_work.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -29,7 +22,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String BASE_URL = "http://13.235.65.171:8080/adddevice?deviceid=cello";
+    private String BASE_URL = "http://13.235.65.171:8080/adddevice?deviceid=";
 
     private static final String TAG = "testttt";
 
@@ -53,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         });
         browser.loadUrl("https://vijayasvj-mushroom-main-dgwryo.streamlit.app/");
 
-        new ApiTask().execute("endpoint");
 
         FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
@@ -66,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
                         // Get new FCM registration token
                         String token = task.getResult();
+                        BASE_URL=BASE_URL+token;
+                        new ApiTask().execute("endpoint");
 
                         // Log and toast
                         String msg = getString(R.string.msg_token_fmt)+token;
