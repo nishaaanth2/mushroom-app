@@ -62,7 +62,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, channelId)
                         .setSmallIcon(R.drawable.ic_orgware_logo)
-                        .setContentTitle("My new notification")
+                        .setContentTitle("Mush-rooms")
                         .setContentText(messageBody)
                         .setAutoCancel(true)
                         .setSound(customSounUri, AudioManager.STREAM_NOTIFICATION)

@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 return false; // then it is not handled by default action
             }
         });
-        browser.loadUrl("https://vijayasvj-mushroom-main-dgwryo.streamlit.app/");
+        browser.loadUrl("http://65.2.138.164:8501/");
 
 
         FirebaseMessaging.getInstance().getToken()
